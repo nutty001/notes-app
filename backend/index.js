@@ -11,6 +11,7 @@ const Note = require("./models/note.model");
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const port = process.env.PORT || 8000;
 
 const jwt = require("jsonwebtoken");
 const {authenticateToken} = require("./utilities");
@@ -316,6 +317,6 @@ app.get("/search-notes/",authenticateToken,async(req,res)=>{
     });
   }
 });
-app.listen(8000);
+app.listen(port);
 
 module.exports = app;
